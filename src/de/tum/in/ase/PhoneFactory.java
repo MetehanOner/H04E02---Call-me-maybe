@@ -54,7 +54,7 @@ public class PhoneFactory {
         }
         return pList;
     }
-    //TODO: Implement containsPhone that checks if the given phoneList contains the given phone. Return true if it does and false if it doesn't.
+    //TODO: Implement containsPhoneO that checks if the given phoneList contains the given phone. Return true if it does and false if it doesn't.
     public boolean containsPhone(List<Phone> givenList, Phone givenPhone){
 
         for (int i = 0; i < givenList.size(); i++) {
