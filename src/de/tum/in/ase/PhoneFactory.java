@@ -7,8 +7,15 @@ public class PhoneFactory {
 
     //TODO: Initialize the phoneList attribute (as an ArrayList or a LinkedList) in the constructor and add a getter, setter for this attribute
     private List<Phone> phoneList;
+
+    public PhoneFactory(){
+        this.phoneList = new ArrayList<>();
+        setPhoneList(phoneList);
+    }
     //TODO: Implement the producePhones method which adds the parameter phone to the phoneList
     public void producePhone(Phone phone){
+
+        getPhoneList().add(phone);
 
     }
     //TODO: Implement the findPhones method which searches through the entire phoneList and returns the phone with the matching id. If no such phone exists, return a new phone with the brand "", price -1 and without touchscreen feature
