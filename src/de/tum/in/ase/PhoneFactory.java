@@ -83,7 +83,27 @@ public class PhoneFactory {
     }
     //TODO: Implement findSmallestByLex method that returns the phone with the lexicographically smallest brand
     public Phone findSmallestByLex(List<Phone> givenList){
-        return new Phone("",0,false);
+
+        String smallest = "z";
+        for (int i = 0; i < givenList.size(); i++) {
+
+            int x = smallest.compareTo(givenList.get(i).getBrand());
+
+            if (x>0){
+                smallest = givenList.get(i).getBrand();
+            }
+        }
+
+        Phone Obj = new Phone("", -1, false);
+        for (int i = 0; i < givenList.size(); i++) {
+            if(Objects.equals(smallest, givenList.get(i).getBrand())){
+                Obj =  givenList.get(i);
+                break;
+            }
+        }
+
+        return Obj;
+
     }
     //TODO: Implement sortByTouch that stores all the phones with a touchscreen in the beginning of a list, the rest of the phones at the end and return this list of phones.
     public List<Phone> sortByTouch(){
