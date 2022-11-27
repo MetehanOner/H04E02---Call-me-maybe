@@ -56,7 +56,14 @@ public class PhoneFactory {
     }
     //TODO: Implement containsPhone that checks if the given phoneList contains the given phone. Return true if it does and false if it doesn't.
     public boolean containsPhone(List<Phone> givenList, Phone givenPhone){
-        return true;
+
+        for (int i = 0; i < givenList.size(); i++) {
+            if(givenList.get(i) == givenPhone){
+                return true;
+            }
+        }
+        return false;
+
     }
     //TODO: Implement removeByBrand that removes all the phones with the brand from the list phones and returns a list that doesn't contain phones of this brand. If brand or phones is null, return an empty list.
     public List<Phone> removeByBrand(List<Phone> givenList, String brand){
