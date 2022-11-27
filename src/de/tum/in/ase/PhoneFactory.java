@@ -2,6 +2,7 @@ package de.tum.in.ase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PhoneFactory {
 
@@ -67,8 +68,18 @@ public class PhoneFactory {
     }
     //TODO: Implement removeByBrand that removes all the phones with the brand from the list phones and returns a list that doesn't contain phones of this brand. If brand or phones is null, return an empty list.
     public List<Phone> removeByBrand(List<Phone> givenList, String brand){
-        List<Phone> pList = new ArrayList<>();
-        return pList;
+
+        if(givenList == null || brand == null){
+            return new ArrayList<>();
+        }
+
+        for (int i = 0; i < givenList.size(); i++) {
+            if(Objects.equals(givenList.get(i).getBrand(), brand)){
+                givenList.remove(givenList.get(i));
+            }
+        }
+
+        return givenList;
     }
     //TODO: Implement findSmallestByLex method that returns the phone with the lexicographically smallest brand
     public Phone findSmallestByLex(List<Phone> givenList){
