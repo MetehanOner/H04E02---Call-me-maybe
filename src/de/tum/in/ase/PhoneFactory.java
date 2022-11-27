@@ -16,7 +16,7 @@ public class PhoneFactory {
         return new Phone("",0,false);
     }
     //TODO: Implement the removePhone method which removes the phone with the given id from the phoneList and returns the removed phone. If no phone with the given id exists, then follow the same rule in the findPhones method.
-    public Phone removePhone(){
+    public Phone removePhone(int id){
         return new Phone("",0,false);
     }
     //TODO: Implement findTouchPhones method that iterates over the phoneList and store all touchscreen phones in a new list and return this list.
