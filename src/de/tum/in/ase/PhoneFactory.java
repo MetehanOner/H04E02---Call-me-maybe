@@ -6,7 +6,7 @@ import java.util.List;
 public class PhoneFactory {
 
     //TODO: Initialize the phoneList attribute (as an ArrayList or a LinkedList) in the constructor and add a getter, setter for this attribute
-    public List<Phone> phoneList;
+    private List<Phone> phoneList;
     //TODO: Implement the producePhones method which adds the parameter phone to the phoneList
     public void producePhone(Phone phone){
 
