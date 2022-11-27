@@ -40,10 +40,18 @@ public class PhoneFactory {
         getPhoneList().remove(removedPhoned);
 
         return removedPhoned;
+
     }
     //TODO: Implement findTouchPhones method that iterates over the phoneList and store all touchscreen phones in a new list and return this list.
     public List<Phone> findTouchPhones(){
+
         List<Phone> pList = new ArrayList<>();
+
+        for (int i = 0; i < getPhoneList().size(); i++) {
+            if(getPhoneList().get(i).isTouchscreen()){
+                 pList.add(getPhoneList().get(i));
+            }
+        }
         return pList;
     }
     //TODO: Implement containsPhone that checks if the given phoneList contains the given phone. Return true if it does and false if it doesn't.
