@@ -20,7 +20,17 @@ public class PhoneFactory {
     }
     //TODO: Implement the findPhones method which searches through the entire phoneList and returns the phone with the matching id. If no such phone exists, return a new phone with the brand "", price -1 and without touchscreen feature
     public Phone findPhone(int id){
-        return new Phone("",0,false);
+
+        if (id < 0){
+            return new Phone("",-1,false);
+        }
+
+        for (int i = 0; i < getPhoneList().size(); i++) {
+            if(id == getPhoneList().get(i).getId()){
+                return getPhoneList().get(i);
+            }
+        }
+        return new Phone("",-1,false);
     }
     //TODO: Implement the removePhone method which removes the phone with the given id from the phoneList and returns the removed phone. If no phone with the given id exists, then follow the same rule in the findPhones method.
     public Phone removePhone(int id){
