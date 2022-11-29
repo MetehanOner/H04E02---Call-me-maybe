@@ -161,7 +161,7 @@ public class PhoneFactory {
 
         return getPhoneList();
     }
-    //TODO: Implement sortByPrice that sorts the list of phones according to their price in increasing order and return the sorted list
+    //TODO: Implement sortByPrice that sorts the llist of phones according to their price in increasing order and return the sorted list
     public List<Phone> sortByPrice(){
 
         if (getPhoneList().size() == 0){
