@@ -26,6 +26,9 @@ public class Phone {
     }
 
     public void setBrand(String brand) {
+        if(brand == null){
+            brand = "";
+        }
         this.brand = brand;
     }
 

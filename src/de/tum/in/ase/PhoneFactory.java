@@ -123,7 +123,7 @@ public class PhoneFactory {
             for (int x=0; x < getPhoneList().size(); x++)
             {
                 for (int i=0; i < getPhoneList().size() - x - 1 ; i++) {
-                    if ((getPhoneList().get(i).isTouchscreen()) && (!getPhoneList().get(i + 1).isTouchscreen()))
+                    if ((!getPhoneList().get(i).isTouchscreen()) && (getPhoneList().get(i + 1).isTouchscreen()))
                     {
                         touchPhone = getPhoneList().get(i);
                         getPhoneList().set(i, getPhoneList().get(i+1));
@@ -194,4 +194,5 @@ public class PhoneFactory {
     public List<Phone> getPhoneList() {
         return phoneList;
     }
+
 }
