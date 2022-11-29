@@ -84,12 +84,17 @@ public class PhoneFactory {
     //TODO: Implement findSmallestByLex method that returns the phone with the lexicographically smallest brand
     public Phone findSmallestByLex(List<Phone> givenList){
 
-        String smallest = "z";
-        for (int i = 0; i < givenList.size(); i++) {
+        if (givenList == null || givenList.size() == 0){
+            return null;
+        }
+
+        String smallest = givenList.get(0).getBrand();
+
+        for (int i = 1; i < givenList.size(); i++) {
 
             int x = smallest.compareTo(givenList.get(i).getBrand());
 
-            if (x>0){
+            if (x>0) {
                 smallest = givenList.get(i).getBrand();
             }
         }
@@ -106,19 +111,80 @@ public class PhoneFactory {
 
     }
     //TODO: Implement sortByTouch that stores all the phones with a touchscreen in the beginning of a list, the rest of the phones at the end and return this list of phones.
-    public List<Phone> sortByTouch(){
-        List<Phone> pList = new ArrayList<>();
-        return pList;
+    public List<Phone> sortByTouch() {
+
+        if (getPhoneList().size() == 0){
+            return null;
+        }
+
+        Phone touchPhone;
+        if (getPhoneList().size()>1)
+        {
+            for (int x=0; x < getPhoneList().size(); x++)
+            {
+                for (int i=0; i < getPhoneList().size() - x - 1 ; i++) {
+                    if ((getPhoneList().get(i).isTouchscreen()) && (!getPhoneList().get(i + 1).isTouchscreen()))
+                    {
+                        touchPhone = getPhoneList().get(i);
+                        getPhoneList().set(i, getPhoneList().get(i+1));
+                        getPhoneList().set(i+1, touchPhone);
+                    }
+                }
+            }
+        }
+
+        return getPhoneList();
+
     }
     //TODO: Implement sortByBrand that sorts the phones lexicographically according to their brand and return a list of sorted phones.
     public List<Phone> sortByBrand(List<Phone> givenList){
-        List<Phone> pList = new ArrayList<>();
-        return pList;
+
+        if (getPhoneList().size() == 0){
+            return null;
+        }
+
+        Phone smallPhone;
+        if (getPhoneList().size()>1)
+        {
+            for (int x=0; x < getPhoneList().size(); x++)
+            {
+                for (int i=0; i < getPhoneList().size() - x - 1 ; i++) {
+                    if (getPhoneList().get(i).getBrand().compareTo(getPhoneList().get(i + 1).getBrand()) > 0)
+                    {
+                        smallPhone = getPhoneList().get(i);
+                        getPhoneList().set(i, getPhoneList().get(i+1));
+                        getPhoneList().set(i+1, smallPhone);
+                    }
+                }
+            }
+        }
+
+        return getPhoneList();
     }
     //TODO: Implement sortByPrice that sorts the list of phones according to their price in increasing order and return the sorted list
     public List<Phone> sortByPrice(){
-        List<Phone> pList = new ArrayList<>();
-        return pList;
+
+        if (getPhoneList().size() == 0){
+            return null;
+        }
+
+        Phone cheapPhone;
+        if (getPhoneList().size()>1)
+        {
+            for (int x=0; x < getPhoneList().size(); x++)
+            {
+                for (int i=0; i < getPhoneList().size() - x - 1 ; i++) {
+                    if (getPhoneList().get(i).getPrice() > getPhoneList().get(i+1).getPrice())
+                    {
+                        cheapPhone = getPhoneList().get(i);
+                        getPhoneList().set(i, getPhoneList().get(i+1));
+                        getPhoneList().set(i+1, cheapPhone);
+                    }
+                }
+            }
+        }
+
+        return getPhoneList();
     }
 
     public void setPhoneList(List<Phone> phoneList) {
